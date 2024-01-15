@@ -1,0 +1,197 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: #333;
+  line-height: 1;
+}
+img {
+  width: 100%;
+}
+.cont01 {
+  margin: 160px 0;
+}
+.cont01 .inner {
+  max-width: 1440px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 38px; /* gap=가로세로여백 row-gap 열(세로) column-gap 행(가로) */
+}
+.cont01 .inner .title {
+  width: 31.59% /* (455 / 1440 *100) */;
+  position: relative;
+  /* margin-top: 30px; */
+}
+.cont01 .inner .title figure {
+  max-height: 455px;
+  height: 31.59vw;
+}
+.cont01 .inner .title figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cont01 .inner .title div {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+.cont01 .inner .title div h3 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+.cont01 .inner .title div p {
+  font-size: 22px;
+}
+.cont01 .inner .item {
+  position: relative;
+  width: 31.59%;
+  /* margin-top: 30px; */
+}
+.cont01 .inner .item_big {
+  width: 48.75%;
+}
+
+.cont01 .inner .item figure {
+  max-height: 455px;
+  height: 31.59vw;
+}
+.cont01 .inner .item figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cont01 .inner .item div {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  text-align: center;
+  width: 100%;
+  color: white;
+  display: none;
+  z-index: 10;
+}
+.cont01 .inner .item div p {
+  font-size: 18px;
+}
+.cont01 .inner .item div h4 {
+  font-size: 32px;
+}
+.cont01 .inner .item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #00000030;
+  display: none;
+  z-index: 2;
+}
+.cont01 .inner .item:hover div,
+.cont01 .inner .item:hover::before {
+  display: block;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ🍗🍖🍗🍖🍖🍗🍖48번 중 엄청중요 display:flex 가 되어있을때만 가능ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.cont01 .inner > div:nth-child(2) {
+  order: -1;
+} /* inner 직계 >이용 2번째 div를 -1 주어서 순서를 바꾼다 */
+
+/* 화면의 크기가 1024px 이하일 때 스타일 변경 */
+@media screen and (max-width: 1024px) {
+  .cont01 .inner .item div {
+    display: block;
+  }
+  .cont01 .inner .item div p {
+    font-size: 14px;
+  }
+  .cont01 .inner .item div h4 {
+    font-size: 20px;
+  }
+  .cont01 .inner .title div h3 {
+    font-size: 32px;
+  }
+  .cont01 .inner .title div p {
+    font-size: 16px;
+  }
+  .cont01 .inner {
+    row-gap: 18px;
+  }
+  .cont01 .inner .item::before {
+    display: block;
+    background-color: #33333320;
+  }
+} /* 1024px end */
+
+/* -------------------------------------------------------------------------------- */
+/* 화면의 크기가 767px 이하일 때 스타일 변경 */
+@media screen and (max-width: 767px) {
+  .cont01 .inner {
+    position: static;
+    row-gap: 20px; /* gap=가로세로여백 row-gap 열(세로) column-gap 행(가로) */
+  }
+  .cont01 .inner .title {
+    width: 100%;
+    
+  }
+  .cont01 .inner .title figure {
+    display: none;
+  }
+  .cont01 .inner .title div {
+    text-align: center;
+    width: 100%;
+    position: static;
+    transform: translate(0, 0);
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .cont01 .inner .item {
+    width: 47.77%;
+  }
+  .cont01 .inner .item figure {
+    /* max-height: 172px; pc에서만 중요하고 작아졌을때는 그닥 필요없어함 */
+    height: 47.77vw;
+  }
+  .cont01 .inner .item div {
+    color: #333;
+    position: static;
+    transform: translate(0, 0);
+  }
+  .cont01 .inner .title div h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    
+  }
+  .cont01 .inner .title div p {
+    font-size: 16px;
+    
+  }
+  .cont01 .inner .item::before {
+    display: none;
+  }
+  .cont01 .inner .item div p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .cont01 .inner .item div h4 {
+    font-size: 16px;
+  }
+  .cont01 .inner > div:nth-child(2) {
+    order: 0;
+  } /* inner 직계 >이용 2번째 div를 -1 주어서 순서를 바꾼다 */
+  .cont01 .inner .item:hover::before {
+    display: none;
+  }
+}
